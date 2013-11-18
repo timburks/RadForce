@@ -28,6 +28,10 @@ objects, managing binary objects as Document instances, and
 introspecting the database to obtain lists of available
 entities and field types.
 
+For a bit more detail, see the Salesforce REST API Cheat Sheet:
+
+https://na15.salesforce.com/help/pdfs/en/salesforce_api_rest_developer_cheatsheet.pdf
+
 IMPORTANT: In several places, it is necessary to enter the consumer
 key, consumer secret, and other user credentials (including a Salesforce
 username, password, and security token) to use all of the demonstrated

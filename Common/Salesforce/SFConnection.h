@@ -9,6 +9,11 @@
 
 @class RadHTTPResult;
 
+// This class contains methods that can be used to construct 
+// Salesforce REST API calls as described in Salesforce's
+// REST API Cheat Sheet:
+// https://na15.salesforce.com/help/pdfs/en/salesforce_api_rest_developer_cheatsheet.pdf
+
 @interface SFConnection : NSObject
 @property (nonatomic, strong) NSString *consumerName;
 @property (nonatomic, strong) NSString *consumerKey;
