@@ -5,3 +5,31 @@ Salesforce platform from Mac and iOS apps.
 Released under the Apache 2 license.
 
 Copyright 2014, Radtastical Inc. All rights reserved.
+
+USAGE: The GoNative Xcode project contains two targets: "Browser"
+and "KeyRing". The Browser app can be used to browse, view, and
+modify data stored on the Salesforce platform. The KeyRing app
+demonstrates in-app OAuth authentication and together the two 
+apps illustrate three methods of authentication.
+
+1) Direct authentication by sending a Salesforce username, 
+password, and security token to a Salesforce API.
+
+2) Indirect authentication by performing OAuth in an iOS app.
+
+3) Indirect authentication by performing OAuth in mobile
+Safari (iOS).
+
+The essential SDK is in Common/Salesforce/SFConnection.h.
+It contains a dozen or so methods that return NSMutableURLRequest
+objects that perform important operations on the Salesforce
+platform including creating, fetching, updating, and deleting
+objects, managing binary objects as Document instances, and
+introspecting the database to obtain lists of available
+entities and field types.
+
+IMPORTANT: In several places, it is necessary to enter the consumer
+key, consumer secret, and other user credentials (including a Salesforce
+username, password, and security token) to use all of the demonstrated
+features.
+
