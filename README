@@ -6,7 +6,7 @@ Released under the Apache 2 license.
 
 Copyright 2014, Radtastical Inc. All rights reserved.
 
-USAGE: The GoNative Xcode project contains two targets: "Browser"
+CONTENTS: The GoNative Xcode project contains two targets: "Browser"
 and "KeyRing". The Browser app can be used to browse, view, and
 modify data stored on the Salesforce platform. The KeyRing app
 demonstrates in-app OAuth authentication and together the two 
@@ -32,4 +32,64 @@ IMPORTANT: In several places, it is necessary to enter the consumer
 key, consumer secret, and other user credentials (including a Salesforce
 username, password, and security token) to use all of the demonstrated
 features.
+
+GETTING STARTED: The easiest way to get started with the Salesforce
+API on iOS is to build and run the Browser target in the "GoNative"
+Xcode project. But first you'll need to do a few things in your 
+Salesforce account.
+
+1) SIGN UP. If you don't have one yet, visit http://developer.force.com 
+and sign up for a Developer Edition account.
+
+2) CREATE A CONNECTED APP. After you've signed into your Developer
+Edition account, look for the Build->Create option in the pane on
+the left side of your browser. Open the "Create" option and click
+on the "Apps" link. This should take you to a page listing apps. 
+At the bottom of the page, there's a "Connected Apps" section. 
+Click on the "New" button and on the form that appears, fill in the 
+fields marked in red. Further down the page, click on the 
+"Enable OAuth Settings" checkbox and in the expanded area, enter
+"mysampleapp://auth/success" as the callback URL. In the "Selected
+OAuth Scopes" section, enable the following three scopes for your 
+app:
+    - Access your basic information (id)
+    - Access and manage your data (api)
+    - Provide access to your data via the Web (web)
+Then click the "Save" button at the bottom to create your connected
+app definition.
+
+3) CONFIGURE YOUR iOS APP. Take note of the Consumer Key and Consumer 
+Secret show on the app listing page which appeared immediately after
+you clicked "Save". Copy these into the appropriate places in 
+Browser/Classes/AppDelegate.m.
+
+4) HARD-CODE YOUR CREDENTIALS (for development use only). The easiest
+way to for your app to sign into Salesforce is to directly call
+a login api with your username, password, and a security token that
+you can get from the Salesforce.com website. For the Browser target,
+these go in the Browswer/Classes/SignInViewController.m file in the
+signInWithLocalCredentials: method. 
+
+To get a security token, look for your name in the top right of the 
+Salesforce.com console page. Click on it for a pop-down menu that
+should show "My Settings" as the second option. Click on that 
+and then note the "My Settings" section that appears on the left side
+of the browser page. Click on "Personal" to open the corresponding
+section and then click on "Reset My Security Token", which should
+be about halfway down the list of entries in that section. Click 
+on the "Reset Security Token" button and your security token should
+be emailed to you. Whew.
+
+5) BUILD AND RUN THE BROWSER APP. It will modally present you 
+with a signin view. Select "Connect with Local Info" and if all
+of your credentials are valid (and you have a good network connection),
+the app will sign into your Salesforce account and download a list
+of the entity types that are defined for your account. Scroll down
+to the "Contact" entity type and tap it. This will download a schema
+definition and up to 100 Contacts from your account and then display
+them in a table view. Select any entry for details, and select any
+detail to view it and it's corresponding schema details. Entries that
+are text or picklist types can be edited directly in the app.
+
+6) USE THE SOURCE. It's very straightforward.
 
